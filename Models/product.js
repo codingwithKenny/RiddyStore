@@ -20,8 +20,9 @@ const ProductSchema = new Schema({
             ref:"Category"
             
         },
-    Properties:{type:Object}
+    Properties:
+    {type:Object}
     
-})
+},{timestamps:true,})
 
 export const Product = models.Product || model('Product',ProductSchema)

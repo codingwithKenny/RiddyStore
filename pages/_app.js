@@ -3,6 +3,7 @@ import Head from "next/head";
 
 const GlobalStyled = createGlobalStyle`
   body {
+  background-color: #eeee;
     padding: 0;
     margin: 0;
     font-family: "Roboto", sans-serif;

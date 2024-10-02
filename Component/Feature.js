@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Center from "./Center";
-// import PrimaryBtn from "./Button";
 import Button from "./Button";
-import ButtonLink from "./ButtonLink";
+import Link from "next/link";
 
 const Bg = styled.div`
   background-color: #222;
@@ -21,7 +20,7 @@ const Desc = styled.p`
 `;
 const ColumnWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 40px;
   align-items: center;
   img {
@@ -33,6 +32,10 @@ const ButtonWrapper = styled.div`
   gap: 15px;
   margin-top: 25px;
 `;
+const ButtonLink = styled(Link)`
+text-decoration: none;
+color: black;
+`
 export default function Feature({products}) {
   return (
     <Bg>
@@ -47,9 +50,12 @@ export default function Feature({products}) {
               Praesent mauris. Fusce nec tellus sed augue
             </Desc>
             <ButtonWrapper>
-              <ButtonLink href={'/product/'+products._id} white={1} size="l">
+              <Button white={1} size="l">
+                <ButtonLink  href={'/product/'+products._id}>
                 Read MOre
-              </ButtonLink>
+                </ButtonLink>
+                
+              </Button>
               <Button primary={1}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
