@@ -7,6 +7,7 @@ const Bg = styled.div`
   background-color: #222;
   color: #fff;
   padding: 50px 0;
+  height:300px;
  
 `;
 const Title = styled.h1`
@@ -34,7 +35,7 @@ const ButtonWrapper = styled.div`
 `;
 const ButtonLink = styled(Link)`
 text-decoration: none;
-color: black;
+color: #fff;
 `
 export default function Feature({products}) {
   return (
@@ -50,7 +51,7 @@ export default function Feature({products}) {
               Praesent mauris. Fusce nec tellus sed augue
             </Desc>
             <ButtonWrapper>
-              <Button white={1} size="l">
+              <Button white={1} >
                 <ButtonLink  href={'/product/'+products._id}>
                 Read MOre
                 </ButtonLink>

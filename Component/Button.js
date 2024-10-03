@@ -13,17 +13,30 @@ export const ButtonStyle = css`
     margin-right: 5px;
   }
   ${(props) =>
-    props.white &&
+    props.white && !props.outline &&
+    css`
+      background-color: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+    `}
+     ${(props) =>
+    props.white && props.outline &&
     css`
       background-color: #fff;
       color: #222;
     `}
-  ${(props) => props.gray && css``}
+    
+  ${(props) => props.primary && props.outline && css`
+    background-color: #fff;
+      color: #ffc0cb;
+      border: 2px solid pink;
+    
+    `}
     ${(props) =>
-    props.primary &&
+    props.primary && !props.outline &&
     css`
-      background-color: pink;
-      color: #fff;
+      background-color: #fff;
+      color: #000;
     `}
     ${(props) =>
     props.size === "l" &&
