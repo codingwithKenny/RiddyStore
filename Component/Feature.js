@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Center from "./Center";
 import Button from "./Button";
 import Link from "next/link";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 const Bg = styled.div`
   background-color: #222;
@@ -38,6 +40,13 @@ text-decoration: none;
 color: #fff;
 `
 export default function Feature({products}) {
+ const {addProduct} = useContext(CartContext)
+
+  function addFeatureToCart() {
+    addProduct(products._id)
+
+    
+  }
   return (
     <Bg>
       <Center>
@@ -57,7 +66,10 @@ export default function Feature({products}) {
                 </ButtonLink>
                 
               </Button>
-              <Button primary={1}>
+              <Button 
+              primary={1}
+              onClick={addFeatureToCart}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

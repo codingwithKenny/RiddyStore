@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "./Button";
 import Link from "next/link";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
 const ImageBox = styled(Link)`
   display: flex;    
@@ -49,6 +51,7 @@ font-weight: 900;
 
 export default function ProductBox({ _id, title, description, price, images }) {
   const url = `/product/${_id}`;
+  const {addProduct} = useContext(CartContext)
   return (
     <Box>
       <ImageBox href={url}>
@@ -57,7 +60,10 @@ export default function ProductBox({ _id, title, description, price, images }) {
       <Title href={url}>{title}</Title>
       <PriceWrapper>
       <Price>${price}</Price>
-      <Button primary={1} outline={1}>Add to cart</Button>
+      <Button
+       primary={1} 
+      outline={1}
+      onClick={()=>addProduct(_id)}>Add to cart</Button>
       </PriceWrapper>
     </Box>
   );

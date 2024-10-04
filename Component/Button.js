@@ -12,6 +12,14 @@ export const ButtonStyle = css`
     height: 16px;
     margin-right: 5px;
   }
+    ${(props)=>props.block && css`
+      display: block;
+      width: 100%;
+    `}
+    ${(props)=>props.black && css`
+      background-color: black;                  
+      color: #fff;
+      `}
   ${(props) =>
     props.white && !props.outline &&
     css`
