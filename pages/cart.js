@@ -118,6 +118,28 @@ export default function CartPage() {
     total += price;
   });
 
+  async function handlePayment() {
+    const response = await axios.post('/api/checkout',{name,email,city,postalcode,streetAddress,country,cartProducts})
+
+        if(response.data.url){
+          window.location.href = response.data.url
+        }
+
+  }
+  if(typeof window !== "undefined" && window.location.href.includes("success")){
+     return(
+      <>
+      <Header/>
+      <Center>
+        <Box>
+          <h2>Thank you for your purchase!</h2>
+          <p>Your order has been completed successfully.</p>
+        </Box>
+      </Center>
+      </>
+     )
+  }
+
   return (
     <>
       <Header />
@@ -171,7 +193,6 @@ export default function CartPage() {
           {cartProducts?.length > 0 && (
             <Box>
               <h2>Order Information</h2>
-              <form method="post" action='/api/checkout'>
               <Input
                 type="text"
                 placeholder="Name"
@@ -216,15 +237,15 @@ export default function CartPage() {
                 name='country'
                 onChange={(e) => setCountry(e.target.value)}
               />
-              <Input
+              {/* <Input
                type='hidden'
                name='product'
                value={cartProducts.join(',')}
-              />
-              <Button block="true" black="true" type='submit'>
+              /> */}
+              <Button block="true" black="true" onClick={handlePayment}>
                 Continue to make payment
               </Button>
-              </form>
+             
             </Box>
           )}
         </ColumnWrapper>
