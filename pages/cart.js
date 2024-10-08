@@ -81,6 +81,11 @@ const CityWrapper = styled.div`
   gap: 5px;
   
 `;
+const SpecialText = styled.span`
+font-size:1rem;
+  font-weight:900;
+  color:#ff0000;
+`;
 
 // Your existing imports...
 
@@ -131,10 +136,13 @@ export default function CartPage() {
       <>
       <Header/>
       <Center>
+        <ColumnWrapper>
         <Box>
-          <h2>Thank you for your purchase!</h2>
+          <p>Thank you for your purchase!</p>
           <p>Your order has been completed successfully.</p>
+          <p>Check your <SpecialText>EMAIL</SpecialText> for Delivery details</p>
         </Box>
+        </ColumnWrapper>
       </Center>
       </>
      )

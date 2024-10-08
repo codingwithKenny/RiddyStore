@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
 //  Post to Database
   const OrderDoc = await Orders.create({
-    line_items,name,email,city,postalCode,streetAddress,streetAddress,country,paid:false,
+    line_items,name,email,city,postalCode,streetAddress,country,paid:false,
    })
 
    const session = await stripe.checkout.sessions.create({
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
     customer_email:email,
     success_url:process.env.PUBLIC_URL + '/cart?success=1',
     cancel_url:process.env.PUBLIC_URL + '/cart?cancelled=1',
-    metadata:{orderId:OrderDoc._id.toString()},
+    metadata:{orderId:OrderDoc._id.toString()}
 
 
    })
